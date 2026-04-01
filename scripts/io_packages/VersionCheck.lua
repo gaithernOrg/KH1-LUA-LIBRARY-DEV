@@ -1,27 +1,11 @@
 -- Current Versions are 1.0.0.2 (Steam) and 1.0.0.10 Epic Games Store
 versions = {
-	"EGSGlobal_1_0_0_8",
-	"EGSGlobal_1_0_0_9",
 	"EGSGlobal_1_0_0_10",
-	"EGSJP_1_0_0_8",
-	"EGSJP_1_0_0_9",
-	"EGSJP_1_0_0_10",
-	"SteamGlobal_1_0_0_1",
-	"SteamGlobal_1_0_0_2",
-	"SteamJP_1_0_0_1",
-	"SteamJP_1_0_0_2"
+	"SteamGlobal_1_0_0_2"
 }
 versions_table = {
-	EGSGlobal_1_0_0_8 = 0x46726E,
-	EGSGlobal_1_0_0_9 = 0x46A7A2,
 	EGSGlobal_1_0_0_10 = 0x46A822,
-	EGSJP_1_0_0_8 = 0x46726E,
-	EGSJP_1_0_0_9 = 0x4697A2,
-	EGSJP_1_0_0_10 = 0x46A802,
-	SteamGlobal_1_0_0_1 = 0x469872,
-	SteamGlobal_1_0_0_2 = 0x4698D2,
-	SteamJP_1_0_0_1 = 0x4697F2,
-	SteamJP_1_0_0_2 = 0x469872,
+	SteamGlobal_1_0_0_2 = 0x4698D2
 }
 
 version = nil

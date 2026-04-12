@@ -22,3 +22,7 @@ assets:
   method: copy
   source:
   - name: scripts/io_packages/json.lua
+- name: scripts/io_packages/asm.lua
+  method: copy
+  source:
+  - name: scripts/io_packages/asm.lua

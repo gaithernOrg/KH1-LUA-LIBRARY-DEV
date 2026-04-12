@@ -15,6 +15,8 @@
     possible, but some additional memory addresses may need to added.
 --]]
 
+local asm = require("asm")
+
 -- ########### --
 -- # Helpers # --
 -- ########### --
@@ -668,6 +670,13 @@ local function grant_sora_ability(ability_value)
     end
 end
 
+-- ####### --
+-- # ASM # --
+-- ####### --
+local function play_sound_effect(sound_id)
+    asm.inject_play_se2(sound_id)
+end
+
 return {
     byte_to_bits = byte_to_bits,
     bits_to_byte = bits_to_byte,
@@ -723,5 +732,6 @@ return {
     is_pressed = is_pressed,
     is_in_gummi_garage = is_in_gummi_garage,
     give_shared_ability = grant_shared_ability,
-    give_sora_ability = grant_sora_ability
+    give_sora_ability = grant_sora_ability,
+    play_sound_effect = play_sound_effect
 }

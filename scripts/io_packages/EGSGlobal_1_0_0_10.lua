@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- Current Versions are 1.0.0.2 (Steam) and 1.0.0.10 Epic Games Store
 -- shared
 animSpeed = 0x23405CC

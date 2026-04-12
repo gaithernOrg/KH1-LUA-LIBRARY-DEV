@@ -3,7 +3,7 @@ LUAGUI_NAME = "1fmASMDriver"
 LUAGUI_AUTH = "Gicu"
 LUAGUI_DESC = "Handles ASM On Frame and On Init functions."
 
-local asm = require("asm.lua")
+local asm = require("asm")
 
 function _OnInit()
     asm._OnInit()

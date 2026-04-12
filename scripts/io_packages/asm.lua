@@ -52,5 +52,7 @@ function _OnFrame()
 end
 
 return {
-    inject_play_se2 = inject_play_se2
+    inject_play_se2 = inject_play_se2,
+    _OnInit = _OnInit,
+    _OnFrame = _OnFrame
 }

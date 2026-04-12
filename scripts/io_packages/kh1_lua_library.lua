@@ -15,7 +15,7 @@
     possible, but some additional memory addresses may need to added.
 --]]
 
-local asm = require("asm")
+local asm_globals = require("asm_globals")
 
 -- ########### --
 -- # Helpers # --
@@ -674,7 +674,8 @@ end
 -- # ASM # --
 -- ####### --
 local function play_sound_effect(sound_id)
-    asm.inject_play_se2(sound_id)
+    asm_globals.functions_to_inject[#asm_globals.functions_to_inject + 1] = "play_sound_effect"
+    asm_globals.arguments_to_inject[#asm_globals.arguments_to_inject + 1] = {sound_id}
 end
 
 return {

@@ -15,8 +15,6 @@
     possible, but some additional memory addresses may need to added.
 --]]
 
-require("asm_globals")
-
 -- ########### --
 -- # Helpers # --
 -- ########### --
@@ -673,9 +671,29 @@ end
 -- ####### --
 -- # ASM # --
 -- ####### --
+local function update_code_cave_sentinel(offset)
+    -- Should be used to indicate the offset from the start of the code cave where the return operation is.
+    WriteByte(codeCave- 1, offset)
+end
+
+local function get_code_cave_sentinel()
+    return ReadByte(codeCave - 1)
+end
+
+local function inject_to_code_cave(inject_bytes)
+    -- Injects code to the code cave, and updates the sentinel to indicate where the return operation is.
+    local curr_sentinel = get_code_cave_sentinel()
+    WriteArray(codeCave + curr_sentinel, inject_bytes)
+    update_code_cave_sentinel(curr_sentinel + #inject_bytes)
+end
+
 local function play_sound_effect(sound_id)
-    ASM_FUNCTIONS_TO_INJECT[#ASM_FUNCTIONS_TO_INJECT + 1] = "play_sound_effect"
-    ASM_ARGUMENTS_TO_INJECT[#ASM_ARGUMENTS_TO_INJECT + 1] = {sound_id}
+    -- Injects code to play a sound effect using the SE2 function.
+    local inject_bytes = {}
+    for i, v in ipairs(assemblyPlaySE2) do inject_bytes[i] = v end
+    inject_bytes[6] = sound_id & 0xFF
+    inject_bytes[7] = (sound_id >> 8) & 0xFF
+    inject_to_code_cave(inject_bytes)
 end
 
 return {

@@ -22,10 +22,6 @@ assets:
   method: copy
   source:
   - name: scripts/io_packages/json.lua
-- name: scripts/io_packages/asm_globals.lua
-  method: copy
-  source:
-  - name: scripts/io_packages/asm_globals.lua
 - name: scripts/1fmASMDriver.lua
   method: copy
   source:

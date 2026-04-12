@@ -16,10 +16,10 @@ local function remove_call_to_code_cave()
 end
 
 local function reset_code_cave()
-    WriteByte(codeCave - 1, 0)
+    WriteInt(codeCave, 0)
     local t = {}
-    for i = 1, 255 do t[i] = 0x0 end
-    WriteArray(codeCave, t)
+    for i = 1, codeCaveSize do t[i] = 0x0 end
+    WriteArray(codeCave + 8, t)
 end
 
 function _OnInit()
@@ -35,7 +35,7 @@ end
 
 function _OnFrame()
     if canExecute then
-        if not code_cave_written and ReadByte(codeCave - 1) > 0 then
+        if not code_cave_written and ReadInt(codeCave) > 0 then
             code_cave_written = true
             inject_call_to_code_cave()
         elseif code_cave_written then

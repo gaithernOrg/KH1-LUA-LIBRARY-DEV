@@ -684,7 +684,7 @@ local function inject_to_code_cave(inject_bytes)
     -- Injects code to the code cave, and updates the sentinel to indicate where the return operation is.
     local curr_sentinel = get_code_cave_sentinel()
     WriteArray(codeCave + 8 + curr_sentinel, inject_bytes)
-    update_code_cave_sentinel(curr_sentinel + #inject_bytes)
+    update_code_cave_sentinel(curr_sentinel + #inject_bytes - 1)
 end
 
 local function play_sound_effect(sound_id)
